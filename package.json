@@ -2,7 +2,7 @@
   "name": "tech-stack-2019-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "private": true,
   "scripts": {
     "build-ts": "tsc",
     "start": "npm run serve",
