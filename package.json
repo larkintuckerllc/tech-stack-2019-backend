@@ -10,7 +10,7 @@
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Success: no test specified\" && exit 0"
   },
   "author": "",
   "license": "ISC",
@@ -32,8 +32,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build-ts && lint-staged",
-      "pre-push": "npm run build-ts && lint-staged"
+      "pre-commit": "export CI=true && npm run build-ts && lint-staged && npm test",
+      "pre-push": "export CI=test && npm run build-ts && lint-staged && npm test"
     }
   },
   "lint-staged": {
