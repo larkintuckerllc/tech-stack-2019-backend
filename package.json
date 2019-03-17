@@ -29,6 +29,7 @@
   "dependencies": {
     "@types/cors": "^2.8.4",
     "@types/express": "^4.16.0",
+    "aws-sdk": "^2.422.0",
     "cors": "^2.8.5",
     "express": "^4.16.4"
   },
