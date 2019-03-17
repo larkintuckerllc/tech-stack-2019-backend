@@ -5,7 +5,7 @@ import jwksRsa from 'jwks-rsa';
 
 const checkJwt = jwt({
   algorithms: ['RS256'],
-  audience: 'http://localhost:3000',
+  audience: 'http://your-api-endpoint',
   issuer: 'https://larkintuckerllc.auth0.com/',
   secret: jwksRsa.expressJwtSecret({
     cache: true,
@@ -17,5 +17,9 @@ const checkJwt = jwt({
 
 const app = express();
 app.use(cors());
-app.get('/', checkJwt, (req, res) => res.send({ hello: 'world' }));
+app.get('/', (req, res) => res.send({ hello: 'world' }));
+app.get('/auth', checkJwt, (req, res) => {
+  console.log(req.user);
+  res.send({ hello: 'auth' });
+});
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
